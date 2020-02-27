@@ -82,6 +82,10 @@ export default class RLDDItemComponent extends React.Component<RLDDItemProps, RL
   /////
 
   private handleMouseDown(e: React.MouseEvent<HTMLElement>) {
+     if (e.target.nodeName === "INPUT") {
+       this.isDown = false;
+        return
+     }
     this.isDown = true;
     this.mouseDownTimestamp = new Date().getTime();
     this.initialOffset = this.getOffset(e);
